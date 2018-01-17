@@ -15,7 +15,6 @@
       <%= link_to("New post", new_post_path) %>
       Signed in as: <%= @user.name %>
     <% else %>
-      <%= link_to("Sign up", signup_path) %>
       <%= link_to("Log in", login_path) %>
     <% end %>
     <br>
