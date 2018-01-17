@@ -1,7 +1,14 @@
 <h1>All posts</h1>
 <% @posts.sort_by.each do |p| %>
   <div>
-    <h2><%= p.title %></h2>
-    <p><%= p.content %><p>
+    <h2><%= link_to(p.title, p) %></h2>
+    <p>
+      <%= p.content %><br>
+    <p>
+    <% if logged_in? %>
+      <p>by <%= User.find_by(id: p.user_id).name %><p>
+    <% end %>
+    <p>--------------------</p>
   </div>
 <% end %>
+<%= will_paginate %>

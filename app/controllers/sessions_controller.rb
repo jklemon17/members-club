@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   before_action :set_user
+
   def new
   end
 
@@ -14,7 +15,11 @@ class SessionsController < ApplicationController
       render 'new'
     end
   end
+
   def destroy
+    log_out if logged_in?
+    flash[:success] = "You have logged out"
+    redirect_to root_path
   end
 
   private

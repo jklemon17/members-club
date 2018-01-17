@@ -1,8 +1,8 @@
 <h1><%= @post.title %></h1>
-<h3>
-  <% user = User.find_by(id: @post.user_id) %>
-  <%= user.name %>
-</h3>
-<br>
-<br>
 <p><%= @post.content %></p>
+<% if logged_in? %>
+  <p>
+    <% user = User.find_by(id: @post.user_id) %>
+    by <%= user.name %>
+  </p>
+<% end %>

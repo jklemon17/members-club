@@ -17,12 +17,13 @@ class PostsController < ApplicationController
   def show
     @post = Post.find_by(id: params[:id])
   end
+
   def edit
   end
   def update
   end
   def index
-    @posts = Post.all.reverse
+    @posts = Post.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
   end
   def destroy
   end
