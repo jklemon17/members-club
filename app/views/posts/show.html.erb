@@ -2,7 +2,6 @@
 <p><%= @post.content %></p>
 <% if logged_in? %>
   <p>
-    <% user = User.find_by(id: @post.user_id) %>
-    by <%= user.name %>
+    by <%= @post.user.name %>
   </p>
 <% end %>

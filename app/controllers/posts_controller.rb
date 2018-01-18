@@ -23,7 +23,7 @@ class PostsController < ApplicationController
   def update
   end
   def index
-    @posts = Post.order(created_at: :desc).paginate(page: params[:page], per_page: 5)
+    @posts = Post.includes(:user).order(created_at: :desc).paginate(page: params[:page], per_page: 5)
   end
   def destroy
   end

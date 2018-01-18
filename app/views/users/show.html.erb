@@ -1,2 +1,8 @@
+<br>
 <%= @user.name %><br>
-<%= @user.email %><br>
+
+<h2> Posts by <%= @user.name %></h2>
+<% @user.posts.order(created_at: :desc).each do |p| %>
+  <h3><%= p.title %></h3>
+  <p><%= p.content %></p>
+<% end %>
